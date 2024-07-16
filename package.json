@@ -1,7 +1,7 @@
 {
   "name": "Pathfindle 2e",
   "version": "0.1.0",
-  "homepage": "https://jesmonn.github.io/pathfindle-2e",
+  "homepage": "https://jesmonn.github.io/pathfindle-2e/",
   "private": true,
   "dependencies": {
     "@tanstack/react-query": "^5.51.1",
