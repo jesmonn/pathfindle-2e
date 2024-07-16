@@ -20,21 +20,36 @@ export const initializeFeats = (setFeats, setLoadedFeat, seed) => {
               name: d
             }
           }))
-          Axios.get(  
-            'https://raw.githubusercontent.com/foundryvtt/pf2e/master/packs/feats/'+chosenFeat+'.json'
-            ).then(
-              res => setLoadedFeat([true, {
-                  name: res.data.name,
-                  action: res.data.system.actions.value ? res.data.system.actions.value+' '+res.data.system.actionType.value : res.data.system.actionType.value,
-                  category: res.data.system.category,
-                  level: res.data.system.level.value,
-                  rarity: res.data.system.traits.rarity,
-                  traits: res.data.system.traits.value
-                }])
-            )   
+          getInitialFeat(setLoadedFeat, chosenFeat, seed, res) 
         }
       ) 
 }
+
+function getInitialFeat(setLoadedFeat, chosenFeat, seed, ogRes) {
+  Axios.get(  
+    'https://raw.githubusercontent.com/foundryvtt/pf2e/master/packs/feats/'+chosenFeat+'.json'
+    ).then(
+      res => {
+        if(res.data.system.level.value === 0) {
+          const newChosenFeat = ogRes[Math.floor(seed*res.length/2)]
+          getInitialFeat(setLoadedFeat, newChosenFeat, seed, ogRes)
+        } else {
+          return setLoadedFeat([true, {
+              name: res.data.name,
+              action: res.data.system.actions.value ? res.data.system.actions.value+' '+res.data.system.actionType.value : res.data.system.actionType.value,
+              category: res.data.system.category,
+              level: res.data.system.level.value,
+              rarity: res.data.system.traits.rarity,
+              traits: res.data.system.traits.value,
+              prereqs: res.data.system.prerequisites.value,
+              source: res.data.system.publication.title
+            }])
+        }
+        
+      }
+    )
+}
+
 
 export const compareGuessAndCheckSolved = (res, setSolved, loadedFeat) => {
     setSolved(res.data.name === loadedFeat.name)

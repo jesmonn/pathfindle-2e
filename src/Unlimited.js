@@ -82,10 +82,29 @@ export const Unlimited = () => {
               }
             />
             <div style={{marginTop: 15}}/>
-            {!(guessList.length > 7) && <div style={basicTextStyle}>Hint 1 will reveal itself after 7 guesses.</div>}
-            {guessList.length > 7 && <div style={basicTextStyle}>Hint 1: The first letter of the name is '{loadedFeat[1].name[0]}'.</div>}
-            {!(guessList.length > 15) && <div style={basicTextStyle}>Hint 2 will reveal itself after 15 guesses.</div>}
-            {guessList.length > 15 && <div style={basicTextStyle}>Hint 2: The feat has the following traits (this can be empty): {loadedFeat[1].traits.join(', ').replace(/-/g, ' ')}.</div>}
+            {!(guessList.length > 3) && <div style={basicTextStyle}>Hint 1, the Sourcebook, will reveal itself after 4 guesses.</div>}
+            {guessList.length > 3 && <div style={basicTextStyle}>Hint 1: The Sourcebook is '{loadedFeat[1].source}'.</div>}
+            
+            {!(guessList.length > 7) && <div style={basicTextStyle}>Hint 2, the first and last letter of the feat's name, will reveal itself after 8 guesses.</div>}
+            {guessList.length > 7 && <div style={basicTextStyle}>Hint 2: The first letter of the feat's name: '{loadedFeat[1].name[0]}'. The last letter of the feat's name: '{loadedFeat[1].name[loadedFeat[1].name.length-1]}'.</div>}
+            
+            {(loadedFeat[1].prereqs.length > 0) &&
+            <div> 
+              {!(guessList.length > 12) && <div style={basicTextStyle}>Hint 3, the feat's prerequisites, will reveal itself after 13 guesses.</div>}
+              {guessList.length > 12 && <div style={basicTextStyle}>Hint 3: the prerequisites: {(loadedFeat[1].prereqs.map((req) => req.value).join(", "))}.</div>}
+            </div> }
+
+            {(loadedFeat[1].prereqs.length <= 0) &&
+            <div> 
+              {!(guessList.length > 12) && <div style={basicTextStyle}>Hint 3, some (half or so) of the feat's traits (or all, if it only has 1 or none), will reveal itself after 13 guesses.</div>}
+              {guessList.length > 12 && <div style={basicTextStyle}>Hint 3: some of the traits: {(loadedFeat[1].traits.slice(0, Math.ceil(loadedFeat[1].traits.length/2)).join(", "))}.</div>}
+            </div> }
+
+            {!(guessList.length > 18) && <div style={basicTextStyle}>Hint 4, the two foremost and two last letters of the feat's name, will reveal itself after 19 guesses.</div>}
+            {guessList.length > 18 && <div style={basicTextStyle}>Hint 4: The two foremost letter of the feat's name: '{loadedFeat[1].name.slice(0, 2)}'. The last two letters of the feat's name: '{loadedFeat[1].name.slice(-2)}'.</div>}
+            
+            
+            
             </div>}
           {solved && <h2 style={basicTextStyle}>
             You found the feat in <b>{guessList.length}</b> guess(es)! 
@@ -150,10 +169,10 @@ export const Unlimited = () => {
               className=''
             />;
           })}
-          <div style={{marginTop: 30, marginBottom: 10}}></div>
-          </div>
+          <div style={{marginTop: 20, marginBottom: 10}}></div>
           <p style={basicTextStyle}><b>This website</b> uses trademarks and/or copyrights owned by Paizo Inc., used under Paizo's Community Use Policy (<a href="http://paizo.com/communityuse">paizo.com/communityuse</a>). We are expressly prohibited from charging you to use or access this content. <b>This website</b> is not published, endorsed, or specifically approved by Paizo. For more information about Paizo Inc. and Paizo products, visit <a href="http://paizo.com/">paizo.com</a>.</p>
-        
+          </div>
+          
       </div>
       }
     
