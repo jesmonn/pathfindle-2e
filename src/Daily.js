@@ -152,10 +152,10 @@ export const Daily = () => {
               className=''
             />;
           })}
-          <div style={{marginTop: 30, marginBottom: 10}}></div>
-          </div>
+          <div style={{marginTop: 20, marginBottom: 10}}></div>
           <p style={basicTextStyle}><b>This website</b> uses trademarks and/or copyrights owned by Paizo Inc., used under Paizo's Community Use Policy (<a href="http://paizo.com/communityuse">paizo.com/communityuse</a>). We are expressly prohibited from charging you to use or access this content. <b>This website</b> is not published, endorsed, or specifically approved by Paizo. For more information about Paizo Inc. and Paizo products, visit <a href="http://paizo.com/">paizo.com</a>.</p>
-        
+          </div>
+          
       </div>
       }
     

@@ -3,7 +3,10 @@ export const basicTextStyleBold = {
     color: 'white',
     textShadow: '0px 0px 3px #000000',
     fontFamily: '"Cardo", serif',
-    fontWeight: 700
+    fontWeight: 700,
+    wordWrap: 'break-word',
+    whiteSpace: 'no-wrap',
+    wordBreak: 'break-word'
 }
 
 export const titleTextStyleBold = {
@@ -21,7 +24,7 @@ export const logoTextStyle = {
     textShadow: '0px 0px 15px #8B0000',
     fontFamily: '"Cardo", serif',
     fontWeight: 700,
-    fontSize: 80,
+    fontSize: '10vw',
 }
 
 export const basicTextStyle = {
@@ -29,7 +32,10 @@ export const basicTextStyle = {
     color: 'white',
     textShadow: '0px 0px 3px #000000',
     fontFamily: '"Cardo", serif',
-    fontWeight: 400
+    fontWeight: 400,
+    wordWrap: 'break-word',
+    whiteSpace: 'no-wrap',
+    wordBreak: 'break-word'
 }
 
 export const flexHeader = (flex) => {
