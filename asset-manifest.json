@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/pathfindle-2e/static/css/main.5c6b89f6.css",
-    "main.js": "/pathfindle-2e/static/js/main.7e3446b8.js",
+    "main.js": "/pathfindle-2e/static/js/main.d80b7657.js",
     "static/media/CoverDarkened.jpg": "/pathfindle-2e/static/media/CoverDarkened.2ee3e72657253746f6e8.jpg",
     "index.html": "/pathfindle-2e/index.html",
     "main.5c6b89f6.css.map": "/pathfindle-2e/static/css/main.5c6b89f6.css.map",
-    "main.7e3446b8.js.map": "/pathfindle-2e/static/js/main.7e3446b8.js.map"
+    "main.d80b7657.js.map": "/pathfindle-2e/static/js/main.d80b7657.js.map"
   },
   "entrypoints": [
     "static/css/main.5c6b89f6.css",
-    "static/js/main.7e3446b8.js"
+    "static/js/main.d80b7657.js"
   ]
 }
